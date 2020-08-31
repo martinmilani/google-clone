@@ -4,7 +4,7 @@
 
 [Demo](https://clone-12906.web.app/)
 
-A clone of Google Search Web Page!!! 
+A completely functional clone of Google search web page!
 
 ## Installation
 
