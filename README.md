@@ -35,7 +35,7 @@ You will also see any lint errors in the console.
 * HTML
 * CSS
 * ReactJS
-* Google Custom Search https://github.com/google-map-react/google-map-react
+* Google Custom Search https://developers.google.com/custom-search/v1/overview
 * Dotenv https://www.npmjs.com/package/dotenv
 * Material UI https://material-ui.com/
 
