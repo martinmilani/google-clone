@@ -1,6 +1,6 @@
 # Google Clone React App
 
-![Google Clone](/Google-clone-2.gif)
+![Google-Clone](/google-clone-2.gif)
 
 [Demo](https://clone-12906.web.app/)
 
