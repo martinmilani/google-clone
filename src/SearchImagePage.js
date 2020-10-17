@@ -1,5 +1,5 @@
 import React from "react";
-import "./SearchPage.css";
+import "./SearchImagePage.css";
 import { useStateValue } from "./StateProvider";
 import useGoogleSearch from "./useGoogleSearch";
 import Response from "./response";
@@ -12,10 +12,10 @@ import LocalOfferIcon from "@material-ui/icons/LocalOffer";
 import RoomIcon from "@material-ui/icons/Room";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-function SearchPage() {
+function SearchImagePage() {
   const [{ term }, dispatch] = useStateValue();
 
-  const type = null;
+  const type = "image";
 
   const { data } = useGoogleSearch(term, type);
 
@@ -40,7 +40,7 @@ function SearchPage() {
             <div className="searchPage__optionsLeft">
               <div className="searchPage__option">
                 <SearchIcon />
-                <Link to="/all">All</Link>
+                <Link to="/search">All</Link>
               </div>
               <div className="searchPage__option">
                 <DescriptionIcon />
@@ -76,37 +76,30 @@ function SearchPage() {
       </div>
 
       {term && (
-        <div className="searchPage__results">
-          <p className="searchPage__resultCount">
+        <div className="searchImagePage__results">
+          <p className="searchImagePage__resultCount">
             About {data?.searchInformation.formattedTotalResults} results (
             {data?.searchInformation.formattedSearchTime} seconds) for {term}
           </p>
-          {data?.items.map((item) => (
-            <div className="searchPage__result">
-              <a className="searchPage__resultTitle" href={item.link}>
-                <h2>{item.title}</h2>
-              </a>
-              <a href={item.link}>{item.displayLink}</a>
-              <div className="searchPage__description">
-                {item.pagemap?.cse_image?.length > 0 &&
-                  item.pagemap?.cse_image[0]?.src && (
-                    <img
-                      className="searchPage__resultImage"
-                      src={
-                        item.pagemap?.cse_image?.length > 0 &&
-                        item.pagemap?.cse_image[0]?.src
-                      }
-                      alt=""
-                    />
-                  )}
-                <p className="searchPage__resutlSnippet">{item.snippet}</p>
+          <div className="searchImagePage__container">
+            {data?.items.map((item) => (
+              <div className="searchImagePage__result">
+                <a href={item.image.contextLink}>
+                  <img
+                    className="searchImagePage__resultImage"
+                    src={item.link}
+                    alt=""
+                  />
+                  <p className="resultImage__snippet">{item.title}</p>
+                </a>
+                <p className="image__snippet">{item.displayLink}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       )}
     </div>
   );
 }
 
-export default SearchPage;
+export default SearchImagePage;
