@@ -6,6 +6,9 @@
 
 A completely functional clone of Google search web page!
 
+* 🔍 Search anything using google custom search power engeine
+* 🖼️ Search Images option available
+
 ## Installation
 
 You need your own [Custom Google Search Key](https://developers.google.com/custom-search/v1/overview) and 
